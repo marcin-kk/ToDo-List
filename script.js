@@ -19,6 +19,7 @@ const prepareDomElements = () => {
 const prepareDOMEvens = () => {
 	//adds event listeners
 	addBtn.addEventListener('click', addNewTodo)
+	ulList.addEventListener('click', checkClick)
 }
 
 const addNewTodo = () => {
@@ -55,6 +56,16 @@ const createToolsArea = () => {
 	deleteBtn.innerHTML = '<i class="fas fa-times"></i>'
 
 	toolsPanel.append(completeBtn, editBtn, deleteBtn)
+}
+
+const checkClick = e => {
+	if (e.target.matches('.complete')) {
+		e.target.closest('li').classList.toggle('completed')
+	} else if (e.target.matches('.edit')) {
+		console.log('edit')
+	} else if (e.target.matches('.delete')) {
+		console.log('delete')
+	}
 }
 
 document.addEventListener('DOMContentLoaded', main)
