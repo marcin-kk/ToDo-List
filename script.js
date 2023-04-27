@@ -34,6 +34,7 @@ const prepareDOMEvens = () => {
 	ulList.addEventListener('click', checkClick)
 	popupCloseBtn.addEventListener('click', closePopup)
 	popupAddBtn.addEventListener('click', changeTodoText)
+	toDoInput.addEventListener('keyup', enterKeyCheck)
 }
 
 const addNewTodo = () => {
@@ -86,8 +87,6 @@ const editTodo = e => {
 	popup.style.display = 'flex'
 	todoToEdit = e.target.closest('li')
 	popupInput.value = todoToEdit.firstChild.textContent
-
-	console.log(todoToEdit.firstChild)
 }
 
 const closePopup = () => {
@@ -112,6 +111,12 @@ const deleteTodo = e => {
 
 	if (allTodos.length === 0) {
 		errorInfo.textContent = 'Brak zadań na liście'
+	}
+}
+
+const enterKeyCheck = e => {
+	if (e.key === 'Enter') {
+		addNewTodo()
 	}
 }
 
