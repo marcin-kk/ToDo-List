@@ -107,6 +107,12 @@ const changeTodoText = () => {
 
 const deleteTodo = e => {
 	e.target.closest('li').remove()
+
+	const allTodos = ulList.querySelectorAll('li')
+
+	if (allTodos.length === 0) {
+		errorInfo.textContent = 'Brak zadań na liście'
+	}
 }
 
 document.addEventListener('DOMContentLoaded', main)
