@@ -78,7 +78,7 @@ const checkClick = e => {
 	} else if (e.target.matches('.edit')) {
 		editTodo(e)
 	} else if (e.target.matches('.delete')) {
-		console.log('delete')
+		deleteTodo(e)
 	}
 }
 
@@ -103,6 +103,10 @@ const changeTodoText = () => {
 	} else {
 		popupInfo.textContent = 'Musisz podać jakąś wartość'
 	}
+}
+
+const deleteTodo = e => {
+	e.target.closest('li').remove()
 }
 
 document.addEventListener('DOMContentLoaded', main)
